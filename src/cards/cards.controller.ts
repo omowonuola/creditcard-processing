@@ -1,8 +1,11 @@
-import { Controller, NotFoundException } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { Card } from './cards.entity';
-import { CardsRepository } from './cards.repository';
+import { CardsService } from './cards.service';
 
 @Controller('cards')
 export class CardsController {
-
+  constructor(private readonly cardService: CardsService) {}
+  getAllCards(): Card[] {
+    return this.cardService.getAllCards();
+  }
 }
