@@ -7,6 +7,7 @@ async function bootstrap() {
   const logger = new Logger();
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
+
   const config = new DocumentBuilder()
     .setTitle('Credit Card Processing')
     .setDescription('Adding new credit card API description')
@@ -16,8 +17,9 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+
   const PORT = process.env.PORT || 3000;
   await app.listen(PORT);
-  logger.log(`Application listing on port ${PORT}`);
+  logger.log(`Application listening on port ${PORT}`);
 }
 bootstrap();
