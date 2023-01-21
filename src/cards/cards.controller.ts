@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateCardDto } from 'src/dto/create-card.dto';
 import { Card } from './cards.entity';
 import { CardsService } from './cards.service';
@@ -10,6 +10,11 @@ export class CardsController {
   @Get()
   getAllCards(): Card[] {
     return this.cardService.getAllCards();
+  }
+
+  @Get('/:cardNumber')
+  getCardByNumber(@Param('cardNumber') cardNumber: number): Card[] {
+    return this.cardService.getCardByNumber(cardNumber);
   }
 
   @Post()

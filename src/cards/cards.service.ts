@@ -19,6 +19,16 @@ export class CardsService {
     return found;
   }
 
+  getCardByNumber(cardNumber: number): Card[] {
+    const result = this.cardsRepository.query(
+      (Card) => Card.cardNumber == cardNumber,
+    );
+    if (result.length == 0) {
+      throw new NotFoundException(`Card number ${cardNumber} not found`);
+    }
+    return result;
+  }
+
   createCard(payload: CreateCardDto): Card {
     const { id, cardName, cardNumber, limit } = payload;
 
