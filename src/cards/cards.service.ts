@@ -13,7 +13,7 @@ export class CardsService {
 
   getAllCards(): CardEntity[] {
     const found = this.cardsRepository.getAll();
-    if (found.length == 0) {
+    if (found?.length == 0) {
       throw new NotFoundException('No card details found');
     }
     return found;

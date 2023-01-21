@@ -3,11 +3,11 @@ import { CardsRepository } from './cards.repository';
 import { CardsService } from './cards.service';
 
 const mockCardRepository = () => ({
-  getCards: jest.fn(),
+  getAll: jest.fn(),
 });
 describe('CardsService', () => {
   let cardsService: CardsService;
-  let cardsRepository: CardsRepository;
+  let cardsRepository;
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -20,16 +20,11 @@ describe('CardsService', () => {
     cardsRepository = module.get(CardsRepository);
   });
 
-  //   it('should be defined', () => {
-  //     expect(cardsService).toBeDefined();
-  //   });
-
   describe('getAllCards', () => {
-    it('calls the CardsRepository.getAll and return the result', () => {
-      expect(cardsRepository.getAll).not.toHaveBeenCalled();
-      //   call cardsService.getCards, which should then call the repository's getCards
-      cardsService.getAllCards();
-      expect(cardsRepository.getAll).toHaveBeenCalled();
+    it('calls the CardsRepository.getAll and return the result', async () => {
+      cardsRepository.getAll.mockResolvedValue('someValue');
+      const result = await cardsService.getAllCards();
+      expect(result).toEqual('someValue');
     });
   });
 });
