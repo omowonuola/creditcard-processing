@@ -641,6 +641,11 @@
   resolved "https://registry.yarnpkg.com/@nestjs-addons/in-memory-db/-/in-memory-db-3.0.3.tgz#789ab4f2a181bb49453b4587ddb4026620ab4f7f"
   integrity sha512-E+/7ivsddNwXo+5c0CDBBlnDS7jhMlseOOOApkgxEB79siGeOEqvIIshlSCZF8gc27N4xSJ8WqpFhFZXVJB4Qw==
 
+"@nestjs/class-transformer@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/class-transformer/-/class-transformer-0.4.0.tgz#37e4b5f7ed019345079774ebfb1ace614f2b6221"
+  integrity sha512-aHKhqPVixFCo8m7n2iP1uGgfyF0eYlAgGJKfW27l0BvRCTPBjmoL4956Cf9xVu6WNJzVsp//SOcpIavdnNHYZg==
+
 "@nestjs/cli@^9.0.0":
   version "9.1.8"
   resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-9.1.8.tgz#e4cb06c0cb628bf08ae143c2c6278a7beb38044b"
