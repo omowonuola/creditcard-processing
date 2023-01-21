@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
-import { CreateCardDto } from 'src/dto/create-card.dto';
+import { CreateCardDto } from '../dto/create-card.dto';
 import { CardEntity } from './cards.entity';
 import { CardsService } from './cards.service';
 

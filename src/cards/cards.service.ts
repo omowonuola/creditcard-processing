@@ -3,7 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateCardDto } from 'src/dto/create-card.dto';
+import { CreateCardDto } from '../dto/create-card.dto';
 import { CardEntity } from './cards.entity';
 import { CardsRepository } from './cards.repository';
 
