@@ -9,9 +9,9 @@ import {
 @ValidatorConstraint({ async: false })
 export class CardNumberValidator implements ValidatorConstraintInterface {
   validate(cardNumber: number) {
-    if (!cardNumber || cardNumber.toString().length > 19) {
+    if (cardNumber?.toString().length > 19) {
       throw new BadRequestException(
-        'Kindly add card number and must not greater than 19',
+        'credit card number must not be greater than 19',
       );
     }
     const arr = (cardNumber + '')

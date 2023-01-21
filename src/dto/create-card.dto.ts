@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
-import { IsCreditCardValid } from 'src/cards/cards.validator';
+import { IsCreditCardValid } from 'src/validators/cardsnumber.validator';
 
 export class CreateCardDto {
   @IsOptional()
