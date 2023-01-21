@@ -1,4 +1,4 @@
 import { InMemoryDBService } from '@nestjs-addons/in-memory-db';
-import { Card } from './cards.entity';
+import { CardEntity } from './cards.entity';
 
-export class CardsRepository extends InMemoryDBService<Card> {}
+export class CardsRepository extends InMemoryDBService<CardEntity> {}

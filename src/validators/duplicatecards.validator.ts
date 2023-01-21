@@ -11,14 +11,16 @@ import { CardsRepository } from '../cards/cards.repository';
 export class CardNumberDuplicate implements ValidatorConstraintInterface {
   constructor(private readonly cardsRepository: CardsRepository) {}
   validate(cardNumber: number) {
-    if (cardNumber.toString().length > 19) {
+    if (cardNumber?.toString().length > 19) {
       throw new BadRequestException('card number must not be greater than 19');
     }
     // check out for duplicate card number
-    const count = this.cardsRepository.query(
+    const result = this.cardsRepository.query(
       (Card) => Card.cardNumber == cardNumber,
     );
-    if (count.length > 0) {
+    console.log(result, 'reap');
+
+    if (result.length > 0) {
       throw new ConflictException('Card number already exists');
     }
     return true;

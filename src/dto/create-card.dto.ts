@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import { IsCreditCardValid } from 'src/validators/cardsnumber.validator';
+import { IsCreditCardNumberDuplicate } from 'src/validators/duplicatecards.validator';
 
 export class CreateCardDto {
   @IsOptional()
@@ -24,6 +25,7 @@ export class CreateCardDto {
   @IsCreditCardValid({
     message: `Enter a correct credit card number`,
   })
+  @IsCreditCardNumberDuplicate({ message: 'Duplicate card not allowed' })
   cardNumber: number;
 
   //   integer validation

@@ -1,7 +1,7 @@
 import { InMemoryDBEntity } from '@nestjs-addons/in-memory-db';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class Card implements InMemoryDBEntity {
+export class CardEntity implements InMemoryDBEntity {
   id: string;
   /**
    * The card name

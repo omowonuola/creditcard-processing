@@ -4,14 +4,14 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { CreateCardDto } from 'src/dto/create-card.dto';
-import { Card } from './cards.entity';
+import { CardEntity } from './cards.entity';
 import { CardsRepository } from './cards.repository';
 
 @Injectable()
 export class CardsService {
   constructor(private readonly cardsRepository: CardsRepository) {}
 
-  getAllCards(): Card[] {
+  getAllCards(): CardEntity[] {
     const found = this.cardsRepository.getAll();
     if (found.length == 0) {
       throw new NotFoundException('No card details found');
@@ -19,7 +19,7 @@ export class CardsService {
     return found;
   }
 
-  getCardByNumber(cardNumber: number): Card[] {
+  getCardByNumber(cardNumber: number): CardEntity[] {
     const result = this.cardsRepository.query(
       (Card) => Card.cardNumber == cardNumber,
     );
@@ -29,10 +29,10 @@ export class CardsService {
     return result;
   }
 
-  createCard(payload: CreateCardDto): Card {
+  createCard(payload: CreateCardDto): CardEntity {
     const { id, cardName, cardNumber, limit } = payload;
 
-    const card: Card = {
+    const card: CardEntity = {
       id,
       cardName,
       cardNumber,
