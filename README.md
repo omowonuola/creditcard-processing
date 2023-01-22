@@ -1,6 +1,6 @@
 CREDIT CARD PROCESSING API
 
-- REST API with [TypeORM](http://typeorm.io) support 
+- REST API Nestjs
 - Swagger documentation, nextjs logger, ...
 - Folder structure, code samples and best practices
 
