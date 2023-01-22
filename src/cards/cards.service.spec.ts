@@ -35,31 +35,31 @@ describe('CardsService', () => {
   });
 
   describe('getAllCards', () => {
-    // it('calls the CardsRepository.getAll and return the result', async () => {
-    //   cardsRepository.getAll.mockReturnValueOnce('someValue');
-    //   const result = await cardsService.getAllCards();
-    //   expect(result).toEqual('someValue');
-    // });
-    // it('calls the CardsRepository.getAll and handles an error', async () => {
-    //   cardsRepository.getAll.mockReturnValueOnce([]);
-    //   await expect(cardsService.getAllCards()).rejects.toThrowError(
-    //     NotFoundException,
-    //   );
-    // });
+    it('calls the CardsRepository.getAll and return the result', async () => {
+      cardsRepository.getAll.mockReturnValueOnce('someValue');
+      const result = await cardsService.getAllCards();
+      expect(result).toEqual('someValue');
+    });
+    it('calls the CardsRepository.getAll and handles an error', async () => {
+      cardsRepository.getAll.mockReturnValueOnce([]);
+      await expect(cardsService.getAllCards()).rejects.toThrowError(
+        NotFoundException,
+      );
+    });
   });
 
   describe('getCardByNumber', () => {
-    // it('calls CardsRepository.query and returns the result', async () => {
-    //   cardsRepository.query.mockReturnValueOnce(mockCard);
-    //   const result = await cardsService.getCardByNumber(0);
-    //   expect(result).toEqual(mockCard);
-    // });
-    // it('calls the CardsRepository.query and handles an error', async () => {
-    //   cardsRepository.query.mockReturnValueOnce([]);
-    //   await expect(cardsService.getCardByNumber(0)).rejects.toThrowError(
-    //     NotFoundException,
-    //   );
-    // });
+    it('calls CardsRepository.query and returns the result', async () => {
+      cardsRepository.query.mockReturnValueOnce(mockCard);
+      const result = await cardsService.getCardByNumber(0);
+      expect(result).toEqual(mockCard);
+    });
+    it('calls the CardsRepository.query and handles an error', async () => {
+      cardsRepository.query.mockReturnValueOnce([]);
+      await expect(cardsService.getCardByNumber(0)).rejects.toThrowError(
+        NotFoundException,
+      );
+    });
   });
 
   describe('createCard', () => {
