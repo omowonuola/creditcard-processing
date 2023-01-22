@@ -10,7 +10,7 @@ export class CardsController {
   constructor(private readonly cardService: CardsService) {}
 
   @Get()
-  @ApiOperation({ summary: 'Get all credit card' })
+  @ApiOperation({ summary: 'Get all credit cards' })
   @ApiResponse({ description: 'return all records', type: CardEntity })
   getAllCards(): Promise<CardEntity[]> {
     return this.cardService.getAllCards();
