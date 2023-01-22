@@ -10,7 +10,7 @@ CREDIT CARD PROCESSING API
 
 Before starting, make sure you have these components on your local machine:
 
-- An up-to-date release of [NodeJS](https://nodejs.org/) and NPM
+- An up-to-date release of [NodeJS](https://nodejs.org/) and NPM/YARN
 - An in-memory database such as @nestjs-addons/in-memory-db (https://www.npmjs.com/package/@nestjs-addons/in-memory-db)
 
 ### 1.2 Project configuration
@@ -19,6 +19,7 @@ Start by cloning this project on your local machine.
 
 ``` sh
 git clone https://github.com/omowonuola/creditcard-processing
+NOTE: The Main branch is the update branch for the codebase
 ```
 
 The next step will be to install all the dependencies of the project.
@@ -70,7 +71,7 @@ The YARN commands below are already included with this template and can be used 
 yarn start:dev (use this to start the application locally)
 
 # Run the project' unit tests
-yarn test:watch
+yarn test:watch(use this to start the unit testing locally)
 
 ```
 
