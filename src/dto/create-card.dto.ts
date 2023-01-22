@@ -27,7 +27,7 @@ export class CreateCardDto {
   })
   @IsNotEmpty()
   @IsNumber()
-  @Max(19)
+  //   @Max(20)
   @IsCreditCardValid({
     message: `Enter a correct credit card number`,
   })

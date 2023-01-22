@@ -10,24 +10,28 @@ export class CardsController {
   constructor(private readonly cardService: CardsService) {}
 
   @Get()
+  @ApiOperation({ summary: 'Get all credit card' })
   @ApiResponse({ description: 'return all records', type: CardEntity })
-  getAllCards(): CardEntity[] {
+  getAllCards(): Promise<CardEntity[]> {
     return this.cardService.getAllCards();
   }
 
   @Get('/:cardNumber')
+  @ApiOperation({ summary: 'Get a credit card by card number' })
   @ApiResponse({
     description: 'return an existing card number',
     type: CardEntity,
   })
-  getCardByNumber(@Param('cardNumber') cardNumber: number): CardEntity[] {
+  getCardByNumber(
+    @Param('cardNumber') cardNumber: number,
+  ): Promise<CardEntity[]> {
     return this.cardService.getCardByNumber(cardNumber);
   }
 
   @Post()
   @ApiOperation({ summary: 'Create new credit card' })
   @ApiResponse({ description: 'Forbidden.' })
-  createCard(@Body() payload: CreateCardDto): CardEntity {
+  createCard(@Body() payload: CreateCardDto): Promise<CardEntity> {
     return this.cardService.createCard(payload);
   }
 }

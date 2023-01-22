@@ -3,10 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CardEntity implements InMemoryDBEntity {
   id: string;
-  /**
-   * The card name
-   * @example John Wick
-   */
+
   @ApiProperty({
     example: 'John Wick',
     description: 'The credit card name',
