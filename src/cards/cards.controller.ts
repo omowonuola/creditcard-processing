@@ -30,7 +30,7 @@ export class CardsController {
 
   @Post()
   @ApiOperation({ summary: 'Create new credit card' })
-  @ApiResponse({ description: 'Forbidden.' })
+  @ApiResponse({ description: 'returns the details of the new credit card.' })
   createCard(@Body() payload: CreateCardDto): Promise<CardEntity> {
     return this.cardService.createCard(payload);
   }

@@ -22,6 +22,7 @@ const mockCard = [
 describe('CardsService', () => {
   let cardsService: CardsService;
   let cardsRepository;
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -64,15 +65,16 @@ describe('CardsService', () => {
 
   describe('createCard', () => {
     it('calls the CardsRepository.create and returns the result', async () => {
+      cardsRepository.query.mockReturnValueOnce([]);
       cardsRepository.create.mockReturnValueOnce(mockCard[0]);
       const result = await cardsService.createCard(mockCard[0]);
       expect(result).toEqual(mockCard[0]);
     });
     it('calls the CardsRepository.create and handles an error', async () => {
-      cardsRepository.create.mockReturnValueOnce(mockCard[0].cardNumber);
-      await expect(
-        cardsService.getCardByNumber(mockCard[0].cardNumber),
-      ).rejects.toThrowError(NotFoundException);
+      cardsRepository.query.mockReturnValueOnce([mockCard[0]]);
+      await expect(cardsService.createCard(mockCard[0])).rejects.toThrowError(
+        ConflictException,
+      );
     });
   });
 });

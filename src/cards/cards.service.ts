@@ -41,14 +41,12 @@ export class CardsService {
     };
     // check out for duplicate card number
     const cardFound = this.cardsRepository.query(
-      (Card) => Card.cardNumber == cardNumber,
+      (Card) => Card.cardNumber == newCard.cardNumber,
     );
-    console.log(cardFound, 'found');
-    if (!cardFound || cardFound.length > 0) {
+    if (cardFound && cardFound.length > 0) {
       throw new ConflictException('Card number already exists');
     }
     const newCardValue = this.cardsRepository.create(newCard);
-    console.log(newCardValue, 'newvalue');
     return newCardValue;
   }
 }

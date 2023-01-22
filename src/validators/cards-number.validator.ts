@@ -6,10 +6,12 @@ import {
   ValidatorConstraintInterface,
 } from 'class-validator';
 
+const cardNumberSize = 19;
+
 @ValidatorConstraint({ async: false })
 export class CardNumberValidator implements ValidatorConstraintInterface {
   validate(cardNumber: number) {
-    if (cardNumber?.toString().length > 19) {
+    if (cardNumber?.toString().length > cardNumberSize) {
       throw new BadRequestException(
         'credit card number must not be greater than 19',
       );
