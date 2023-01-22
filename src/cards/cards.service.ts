@@ -23,7 +23,7 @@ export class CardsService {
     const result = this.cardsRepository.query(
       (Card) => Card.cardNumber == cardNumber,
     );
-    if (result.length == 0) {
+    if (result?.length == 0) {
       throw new NotFoundException(`Card number ${cardNumber} not found`);
     }
     return result;
@@ -43,7 +43,7 @@ export class CardsService {
     const count = this.cardsRepository.query(
       (Card) => Card.cardNumber == cardNumber,
     );
-    if (count.length > 0) {
+    if (count?.length > 0) {
       throw new ConflictException('Card number already exists');
     }
     return this.cardsRepository.create(card);
