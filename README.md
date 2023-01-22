@@ -1,73 +1,80 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+CREDIT CARD PROCESSING API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+- REST API with [TypeORM](http://typeorm.io) support 
+- Swagger documentation, nextjs logger, ...
+- Folder structure, code samples and best practices
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 1. Getting started
 
-## Description
+### 1.1 Requirements
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Before starting, make sure you have these components on your local machine:
 
-## Installation
+- An up-to-date release of [NodeJS](https://nodejs.org/) and NPM
+- An in-memory database such as @nestjs-addons/in-memory-db (https://www.npmjs.com/package/@nestjs-addons/in-memory-db)
 
-```bash
-$ npm install
+### 1.2 Project configuration
+
+Start by cloning this project on your local machine.
+
+``` sh
+git clone https://github.com/omowonuola/creditcard-processing
 ```
 
-## Running the app
+The next step will be to install all the dependencies of the project.
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```sh
+yarn install
 ```
 
-## Test
+For a standard development configuration, you can leave the default values for PORT, which has the default value of 3000 in the main.ts file.
 
-```bash
-# unit tests
-$ npm run test
+### 1.3 Launch and discover
 
-# e2e tests
-$ npm run test:e2e
+You are now ready to launch the NestJS application using the command below.
 
-# test coverage
-$ npm run test:cov
+```sh
+# Launch the development server with yarn command
+yarn start:dev
 ```
 
-## Support
+You can now head to `http://localhost:3000/api#/cards` and see the API Swagger docs. The example card API that gets all cards in the system is located at the `http://localhost:3000/api#/cards/CardsController_getAllCards` endpoint in the documentation.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 2. Project structure
 
-## Stay in touch
+This template was made with a well-defined directory structure.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```sh
+src/
+├── cards
+│   ├── cards.controller.ts # The card controller file contains the api calls for creating new cards, getting all cards and getting card by card number
+│   ├── card.entity.ts/  # The entity file contains the data model structure and type, it references to the in-memory-db-entity
+│   ├── cards.module.ts
+│   ├── cards.repository.ts # The repository file references the database
+│   ├── cards.service.ts # The service file has the create and get database query
+│   ├── cards.service.spec.ts # The service.spec file has the test file for the service functions
+├── dto
+│   ├── create-card.dto.ts # The file contains the data DTO
+├── validators
+│   ├── cards-number.validator.spec.ts # The test file for card number validator
+│   ├── cards-number.validator.ts # The file for card number validation
+└── main.ts
+```
 
-## License
+## 3. Default YARN commands
 
-Nest is [MIT licensed](LICENSE).
+The YARN commands below are already included with this template and can be used to quickly run, build and test the project.
+
+```sh
+# Start the application using yarn NodeJS in development
+yarn start:dev (use this to start the application locally)
+
+# Run the project' unit tests
+yarn test:watch
+
+```
+
+## 4. Project goals
+
+The goal of this project is to build a credit card process which includes creating new card details in the system with NestJS.
+
